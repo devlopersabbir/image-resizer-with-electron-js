@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="script-src 'self' https://cdn.tailwindcss.com"
+    />
+    <title>Image resizer app</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-800">
+    <div
+      class="container flex flex-col justify-center items-center h-screen w-full"
+    >
+      <div
+        class="box shadow-xl bg-gray-600 rounded-md text-white p-4 text-center flex justify-center flex-col items-center gap-2"
+      >
+        <form id="form">
+          <label for="img">
+            <img
+              src="./assets/upload.png"
+              alt="upload"
+              width="100%"
+              height="100%"
+              class="w-10 cursor-pointer" />
+            <input type="file" name="img" id="img" class="hidden"
+          /></label>
+        </form>
+        <h2 class="font-semibold">Select an image to resize</h2>
+      </div>
+      <div class="hidden" id="hidden">
+        <h1 class="my-4 text-xl text-white uppercase text-center">to</h1>
+        <form
+          class="flex flex-col bg-gray-700 rounded-lg shadow-lg p-5 gap-2 w-80"
+        >
+          <div class="input__group flex flex-col gap-1 text-white">
+            <label for="widthInput" class="font-semibold">Width:</label>
+            <input
+              type="number"
+              value=""
+              placeholder="width"
+              id="widthInput"
+              required
+              name="width"
+              class="w-full px-2 py-1 bg-gray-800 rounded outline-none"
+            />
+          </div>
+          <div class="input__group flex flex-col gap-1 text-white">
+            <label for="heightInput" class="font-semibold">Height:</label>
+            <input
+              type="number"
+              value=""
+              required
+              placeholder="height"
+              id="heightInput"
+              name="height"
+              class="w-full px-2 py-1 bg-gray-800 rounded outline-none"
+            />
+          </div>
+          <button
+            type="submit"
+            class="uppercase font-bold w-full bg-cyan-500 p-1 rounded my-1"
+          >
+            resize
+          </button>
+        </form>
+
+        <div class="details flex flex-col gap-3 my-5 text-white w-80">
+          <p id="fileName" class="font-bold"></p>
+          <p id="outPutPath" class="font-bold"></p>
+        </div>
+      </div>
+    </div>
+    <script src="js/renderer.js"></script>
+  </body>
+</html>
